@@ -1,0 +1,38 @@
+import math
+
+# Clase base
+class Figura:
+    def area(self):
+        raise NotImplementedError("Este método debe ser implementado por las subclases")
+
+# Clase derivada Circulo
+class Circulo(Figura):
+    def __init__(self, radio):
+        self.radio = radio
+
+    def area(self):
+        return math.pi * (self.radio ** 2)
+
+# Clase derivada Rectangulo
+class Rectangulo(Figura):
+    def __init__(self, base, altura):
+        self.base = base
+        self.altura = altura
+
+    def area(self):
+        return self.base * self.altura
+
+# Función principal para demostrar polimorfismo
+def main():
+    figuras = [
+        Circulo(5),
+        Rectangulo(4, 6),
+        Circulo(3),
+        Rectangulo(10, 2)
+    ]
+
+    for figura in figuras:
+        print(f"Área de {figura.__class__.__name__}: {figura.area():.2f}")
+
+if __name__ == "__main__":
+    main()
