@@ -1,0 +1,33 @@
+# Clase base Vehiculo
+class Vehiculo:
+    def mover(self):
+        raise NotImplementedError("Este método debe ser implementado por las subclases")
+
+# Clase derivada Coche
+class Coche(Vehiculo):
+    def mover(self):
+        return "El coche se mueve por la carretera"
+
+# Clase derivada Bicicleta
+class Bicicleta(Vehiculo):
+    def mover(self):
+        return "La bicicleta avanza pedaleando"
+
+# Función que recibe una lista de vehículos
+def mostrar_movimiento(vehiculos):
+    for vehiculo in vehiculos:
+        print(f"{vehiculo.__class__.__name__}: {vehiculo.mover()}")
+
+# Función principal
+def main():
+    lista_vehiculos = [
+        Coche(),
+        Bicicleta(),
+        Coche(),
+        Bicicleta()
+    ]
+
+    mostrar_movimiento(lista_vehiculos)
+
+if __name__ == "__main__":
+    main()
